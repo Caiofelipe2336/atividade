@@ -1,34 +1,61 @@
-function fatorial(n) {
-    if (n === 0) {
-        return 1;
-    }
-    return n * fatorial(n - 1);
+/* questão 1 */
+
+function calcularFatorial(numero) {
+  if (numero === 0 || numero === 1) {
+    return 1;
+  } else {
+    return numero * calcularFatorial(numero - 1);
+  }
 }
 
 function combinacao(n, k) {
-    return fatorial(n) / (fatorial(n - k) * fatorial(k));
+  if (n < k) {
+    return "n deve ser maior ou igual a k";
+}
+  
+  const numerador = calcularFatorial(n);
+  const denominador = calcularFatorial(n - k) * calcularFatorial(k);
+  const resultado = numerador / denominador;
+  
+  return resultado;
 }
 
-function rollMessage() {
-    if (rolling) {
-        message = message.substr(1) + message[0];
-        document.getElementById("message-input").value = message;
-        timer = setTimeout(rollMessage, 100);
-    }
+function calcularCombinação() {
+  const n = parseInt(document.getElementById("nInput").value);
+  const k = parseInt(document.getElementById("kInput").value);
+    
+  const resultado = combinacao(n, k);
+    document.getElementById("resultado").innerText = `C(${n}, ${k}) = ${resultado}`;
 }
 
-let message = "Hello, World!";
-let rolling = false;
-let timer;
+/* questão 2 */
 
-document.getElementById("start-button").addEventListener("click", () => {
-    if (!rolling) {
-        rolling = true;
-        rollMessage();
-    }
-});
+let intervalId;
 
-document.getElementById("stop-button").addEventListener("click", () => {
-    clearTimeout(timer);
-    rolling = false;
-});
+function scrollMessage() {
+  let messageField = document.getElementById("messageField");
+  let message = messageField.value;
+  message = message.substring(1) + message[0]; 
+  messageField.value = message;
+}
+
+function startScroll() {
+  intervalId = setInterval(scrollMessage, 200);
+}
+
+function stopScroll() {
+  clearInterval(intervalId);
+}
+
+/* questão 3 */
+
+function inverterTexto() {
+  let originalText = document.getElementById("originalTextarea").value;
+  let words = originalText.split(" ");
+  let invertedWords = words.map(word => word.split("").reverse().join(""));
+  
+  let invertedText = invertedWords.join(" ");
+            document.getElementById("invertedTextarea").value = invertedText;
+}
+
+/*questão 4 */
