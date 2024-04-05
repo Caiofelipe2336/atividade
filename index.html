@@ -1,1 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividade</title>
+</head>
+<body>
+  <h1>Questão 1</h1>
+  <p>Insira os valores de n e k para calcular C(n,k):</p>
+  <input type="number" id="nInput" placeholder="n">
+  <input type="number" id="kInput" placeholder="k">
+  <button onclick="calcularCombinação()">Calcular</button>
+  <p id="resultado"></p>
 
+  <h1>Questão 2</h1>
+  <input type="text" id="messageField" value=""><br>
+  <button onclick="startScroll()">Iniciar</button>
+  <button onclick="stopScroll()">Parar</button>
+
+  <h1>Questão 3</h1>
+  <label for="originalTextarea">Texto Original:</label><br>
+  <textarea id="originalTextarea" rows="4" cols="50"></textarea><br><br>
+  <button onclick="inverterTexto()">Inverter</button><br><br>
+  <label for="invertedTextarea">Texto Invertido:</label><br>
+  <textarea id="invertedTextarea" rows="4" cols="50" readonly></textarea>
+  <script src="script.js"></script>
+</body>
+</html>
